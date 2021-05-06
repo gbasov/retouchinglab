@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Bogdana Kutsenko — Hi-End Retouching</title>
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:300,900|Open+Sans+Condensed:300,900" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/main.css?v13">
+        
+        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="favicon/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicon/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="favicon/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="favicon/apple-touch-icon-144x144.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="60x60" href="favicon/apple-touch-icon-60x60.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="120x120" href="favicon/apple-touch-icon-120x120.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="76x76" href="favicon/apple-touch-icon-76x76.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="favicon/apple-touch-icon-152x152.png" />
+        <link rel="icon" type="image/png" href="favicon/favicon-196x196.png" sizes="196x196" />
+        <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/png" href="favicon/favicon-32x32.png" sizes="32x32" />
+        <link rel="icon" type="image/png" href="favicon/favicon-16x16.png" sizes="16x16" />
+        <link rel="icon" type="image/png" href="favicon/favicon-128.png" sizes="128x128" />
+        <meta name="application-name" content="Bogdana Kutsenko — Hi-End Retouching"/>
+        <meta name="msapplication-TileColor" content="#FFFFFF" />
+        <meta name="msapplication-TileImage" content="favicon/mstile-144x144.png" />
+        <meta name="msapplication-square70x70logo" content="favicon/mstile-70x70.png" />
+        <meta name="msapplication-square150x150logo" content="favicon/mstile-150x150.png" />
+        <meta name="msapplication-wide310x150logo" content="favicon/mstile-310x150.png" />
+        <meta name="msapplication-square310x310logo" content="favicon/mstile-310x310.png" />
+
+    </head>
+    <body>
+        <header class="header">
+            <h1 class="caption">
+                <div class="caption__title">Bogdana Kutsenko</div>
+                <div class="caption__subtitle"><span>&nbsp;Retouching Lab</span></div>
+            </h1>
+
+            <div class="contacts">
+                <b>contact me</b><br>
+                <a href="mailto:kutsenko.b@gmail.com">kutsenko.b@gmail.com</a><br>
+                <span>‭+31 6 40 40 97 69‬</span>
+            </div>
+        </header>
+
+
+        <div class="preloader">
+            <div class="phrase">Every photo is secretly perfect</div>
+            <img src="img/three-dots.svg">
+        </div>
+
+        <div class="gallery" style="display:none;opacity:0;transform:translateY(30px);"></div>
+
+        <div class="preview" style="display: none; opacity: 0;">
+            <div class="preview__close"></div>
+            <div class="preview__image">
+                <div class="preview__image__wrapper">
+                    <img src="">
+                    <div class="preview__credits__wrapper">
+                        <span class="preview__credits"></span>
+                    </div>
+                    <div class="preview__loader" style="display: none;">
+                        <div class="preview__loader__mask _full">
+                            <div class="preview__loader__fill _full"></div>
+                        </div>
+                        <div class="preview__loader__mask _half">
+                            <div class="preview__loader__fill"></div>
+                            <div class="preview__loader__fill _fix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="preview__toggle"><span class="before">before</span> / <span class="after active">after</span></div>
+            <div class="preview__next"></div>
+            <div class="preview__prev"></div>
+        </div>
+
+        <script>
+            var app = {
+                images: [
+                    {
+                        after: 'nude2_a.jpg',
+                        before: 'nude2_b.jpg',
+                        low: 'nude2_low.jpg',
+                        credits: 'Photo: Markus Andrews'
+                    },
+                    {
+                        after: 'Diana_a.jpg',
+                        before: 'Diana_b.jpg',
+                        low: 'Diana_low.jpg',
+                        credits: 'Photo: Cristina Ivascu, Model: Diana'
+                    },
+                    {
+                        after: 'VJP_0782_a.jpg',
+                        before: 'VJP_0782_b.jpg',
+                        low: 'VJP_0782_low.jpg'
+                    },
+                    {
+                        after: 'evelyne_a.jpg?v2',
+                        before: 'evelyne_b.jpg',
+                        low: 'evelyne_low.jpg',
+                        credits: 'Model: Evelyne S, Photo: Fabien W'
+                    },
+                    {
+                        after: 'Kelli_080_a.jpg',
+                        before: 'Kelli_080_b.jpg',
+                        low: 'Kelli_080_low.jpg',
+                        credits: 'Photo: Melissa Wenger'
+                    },
+                    {
+                        after: 'weronika_a.jpg',
+                        before: 'weronika_b.jpg',
+                        low: 'weronika_low.jpg',
+                        credits: 'Photo: Weronika Mamot'
+                    },
+                    {
+                        after: 'DSC07129_a.jpg',
+                        before: 'DSC07129_b.jpg',
+                        low: 'DSC07129_low.jpg',
+                        credits: 'Photo: Marcie Photos'
+                    },
+                    {
+                        after: 'Kelli_015_a.jpg',
+                        before: 'Kelli_015_b.jpg',
+                        low: 'Kelli_015_low.jpg',
+                        credits: 'Photo: Melissa Wenger'
+                    },
+                    {
+                        after: 'IMG_7836_a.jpg?v2',
+                        before: 'IMG_7836_b.jpg',
+                        low: 'IMG_7836_low.jpg',
+                        credits: 'Photo: Princeloove'
+                    },
+                    {
+                        after: 'DS_8634_a.jpg',
+                        before: 'DS_8634_b.jpg',
+                        low: 'DS_8634_low.jpg',
+                        credits: 'Photo: Jean-Philippe Bloch'
+                    },
+                    {
+                        after: 'sport_1_a.jpg',
+                        before: 'sport_1_b.jpg',
+                        low: 'sport_1_low.jpg'
+                    },
+                    {
+                        after: '00901_a.jpg?v2',
+                        before: '00901_b.jpg',
+                        low: '00901_low.jpg',
+                        credits: 'Photo: Weronika Mamot'
+                    },
+                    {
+                        after: 'DSC07091_a.jpg',
+                        before: 'DSC07091_b.jpg',
+                        low: 'DSC07091_low.jpg',
+                        credits: 'Photo: Marcie Photos'
+                    },
+                    {
+                        after: 'ret3_a.jpg',
+                        before: 'ret3_b.jpg',
+                        low: 'ret3_low.jpg',
+                        credits: 'Photo: Nina Masic'
+                    },
+                    {
+                        after: '342A1145_a.jpg',
+                        before: '342A1145_b.jpg',
+                        low: '342A1145_low.jpg',
+                        credits: 'Photo: Ann Solie'
+                    },
+                    {
+                        after: 'DS_9006_a.jpg',
+                        before: 'DS_9006_b.jpg',
+                        low: 'DS_9006_low.jpg',
+                        credits: 'Photo: Jean-Philippe Bloch'
+                    },
+                    {
+                        after: 'ret2_a.jpg',
+                        before: 'ret2_b.jpg',
+                        low: 'ret2_low.jpg',
+                        credits: 'Photo: Riccardo Balliano'
+                    },
+                    {
+                        after: 'nude3_a.jpg',
+                        before: 'nude3_b.jpg',
+                        low: 'nude3_low.jpg',
+                        credits: 'Photo: Markus Andrews'
+                    },
+                    {
+                        after: 'MG_3879_a.jpg',
+                        before: 'MG_3879_b.jpg',
+                        low: 'MG_3879_low.jpg'
+                    },
+                    {
+                        after: 'ret5_a.jpg',
+                        before: 'ret5_b.jpg',
+                        low: 'ret5_low.jpg'
+                    },
+                    {
+                        after: 'DSC_2356_a.jpg',
+                        before: 'DSC_2356_b.jpg',
+                        low: 'DSC_2356_low.jpg'
+                    },
+                    {
+                        after: 'DSC8990_a.jpg',
+                        before: 'DSC8990_b.jpg',
+                        low: 'DSC8990_low.jpg'
+                    },
+                    {
+                        after: '342A1768_a.jpg?v2',
+                        before: '342A1768_b.jpg',
+                        low: '342A1768_low.jpg',
+                        credits: 'Photo: Ann Solie'
+                    },
+                    {
+                        after: 'charlotte_a.jpg',
+                        before: 'charlotte_b.jpg',
+                        low: 'charlotte_low.jpg'
+                    }
+                ]
+            }
+        </script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/packery.min.js"></script>
+        <script src="js/dragabilly.min.js"></script>
+        <script src="js/loader.js"></script>
+        <script src="js/main.js?v13"></script>
+        <!-- Yandex.Metrika counter --> <script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter44083449 = new Ya.Metrika({ id:44083449, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/44083449" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+    </body>
+</html>

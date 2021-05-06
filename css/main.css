@@ -1,0 +1,358 @@
+* {
+    font-family: Helvetica;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+a {
+    color: #000000;
+    transition: color .5s;
+}
+
+a:hover {
+    color: #3a5b9e;
+}
+
+.header {
+    margin: 0;
+    padding: 0 50px;
+    height: 200px;
+    z-index: 2;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.caption {
+    color: black;
+    display: block;
+    padding: 0 0 5px;
+    align-self: center;
+}
+
+.caption__title {
+    font-family: 'Merriweather', serif;
+    font-size: 36px;
+    font-weight: 900;
+    margin: 0;
+    display: inline;
+}
+
+.caption__subtitle {
+    margin: 0;
+    padding-left: 0.9em;
+    background-image: url(../img/healing-brush.svg);
+    background-repeat: no-repeat;
+    background-size: 0.7em 0.7em;
+    background-position: 0 0.4em;
+}
+
+.caption__subtitle > span {
+    font-family: 'Open Sans Condensed';
+    font-weight: 300;
+    font-size: 36px;
+}
+
+.contacts {
+    font-family: 'Open Sans Condensed';
+    font-size: 28px;
+    align-self: center;
+    margin-top: -15px;
+}
+
+.contacts a, .contacts span {
+    font-family: inherit;
+    font-weight: 300;
+    text-decoration: none;
+}
+
+.contacts b {
+    font-family: inherit;
+    //text-transform: lowercase;
+    font-weight: 300;
+}
+
+.gallery {
+    height: 100%;
+    width: calc(100% - 3px);
+    padding: 3px 0;
+    margin: 0 0 0 3px;
+    z-index: 1;
+
+    transition: transform .5s, opacity .3s;
+}
+
+.preloader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.preloader img {
+    height: 10px;
+}
+
+.phrase {
+    font-family: 'Open Sans Condensed';
+    font-weight: 300;
+    font-size: 38px;
+    margin: 0 0 40px;
+    -webkit-animation: pulsate 1s ease;
+    -webkit-animation-iteration-count: infinite;
+}
+@-webkit-keyframes pulsate {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+.gallery__item {
+    width: calc(100%/3 - 3px);
+    line-height: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+
+.gallery__item._wide {
+    width: calc(40% - 3px);
+}
+
+.gallery__item > img {
+    width: 100%;
+    line-height: 0;
+    margin: 0;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity .7s ease-in;
+}
+
+.gallery__item.loading > img {
+    opacity: 0;
+}
+
+.gallery__item.loading .gallery__item__loader-cover {
+    opacity: 1;
+}
+.gallery__item__loader-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: opacity .7s ease-in;
+    opacity: 0;
+    overflow: hidden;
+}
+.gallery__item__loader-cover > img {
+    width: 100%;
+    line-height: 0;
+    margin: 0;
+    filter: blur(50px);
+}
+
+.preview {
+    background-color: rgba(0,0,0,0.9);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    transition: opacity .3s;
+}
+
+.preview__close {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 25px;
+    right: 25px;
+    background: url('../img/close.svg') no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    z-index: 2;
+    transition: filter .2s;
+}
+
+.is-touch .preview__close {
+    width: 80px;
+    height: 80px;
+}
+
+.preview__close:hover {
+    filter: brightness(50%);
+}
+
+.preview__next, .preview__prev {
+    position: absolute;
+    width: 20px;
+    height: 40px;
+    top: calc(50% - 20px);
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    z-index: 2;
+    transition: filter .2s;
+}
+
+.is-touch .preview__next, .is-touch .preview__prev {
+    width: 80px;
+    height: 160px;
+    top: calc(50% - 80px);
+}
+
+.preview__next {
+    right: 25px;
+    background-image: url('../img/right.svg');
+}
+
+.preview__next:hover {
+    filter: brightness(50%);
+}
+
+.preview__prev {
+    left: 25px;
+    background-image: url('../img/left.svg');
+}
+
+.preview__prev:hover {
+    filter: brightness(50%);
+}
+
+.preview__image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    line-height: 100vh;
+}
+
+.preview__image__wrapper {
+    display: inline-block;
+    height: 100%;
+    position: relative;
+}
+
+.preview__image__wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0 auto;
+    vertical-align: middle;
+}
+
+.preview__image__wrapper img.togglable {
+    cursor: pointer;
+}
+
+.preview__credits__wrapper {
+    position: absolute;
+    display: block;
+    width: 100vh;
+    right: calc(-100vh/2 + 15px);
+    top: calc(50% - 15px);
+    transform: rotate(-90deg);
+    text-align: left;
+    height: 30px;
+}
+
+.preview__credits {
+    display: block;
+    float: left;
+    height: 20px;
+    line-height: 14px;
+    font-size: 14px;
+    padding: 10px 10px 0 10px;
+    background-color: rgba(0,0,0,.3);
+    color: #ccc;
+    -webkit-font-smoothing: antialiased;
+    border-radius: 3px;
+}
+
+.preview__toggle {
+    position: absolute;
+    bottom: 2vh;
+    left: 50%;
+    margin-left: -11vh;
+    color: #fff;
+    cursor: pointer;
+    font-size: 2.5vh;
+    padding: 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: grayscale;
+    z-index: 2;
+}
+
+.preview__toggle span {
+    font-family: 'Merriweather', serif;   
+}
+
+.preview__toggle > span.active {
+    text-decoration: underline;
+}
+
+.preview__loader {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    margin: -50px 0 0 -50px;
+    background-color: #000000;
+    border-radius: 50px;
+    opacity: 0.7;
+}
+
+.preview__loader__mask, .preview__loader__fill {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    transition: transform .3s;
+}
+
+.preview__loader__mask {
+    clip: rect(0px, 100px, 100px, 50px);
+}
+
+.preview__loader__fill {
+    clip: rect(0px, 50px, 100px, 0);
+    background-color: #ffffff;
+}
+
+@media (max-width: 1200px) {
+    .gallery__item, .gallery__item._wide {
+        width: calc(100%/2 - 3px);
+    }
+}
+
+@media (max-width: 460px) {
+    .gallery__item, .gallery__item._wide {
+        width: calc(100% - 3px);
+    }
+}
+
+body::after {
+    position:absolute; width:0; height:0; overflow:hidden; z-index:-1;
+    content:url(../img/healing-brush.svg) url(../img/dodge.svg) url(../img/mixer-brush.svg) url(../img/sponge.svg);
+}
